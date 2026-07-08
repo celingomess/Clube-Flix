@@ -38,24 +38,24 @@ export default function SchoolDashboard() {
   const totalLicences = 300;
 
   useEffect(() => {
-    const email = SupabaseMock.getCurrentUserEmail();
-    const role = SupabaseMock.getCurrentUserRole();
-    const name = SupabaseMock.getCurrentUserName();
+    let email = SupabaseMock.getCurrentUserEmail();
+    let role = SupabaseMock.getCurrentUserRole();
+    let name = SupabaseMock.getCurrentUserName();
 
-    // Standard school admin bypass or check
+    // Se o usuário não for um professor/escola autenticado, loga automaticamente como o admin demo das escolas
     if (!email || (role !== 'teacher' && email !== 'escola@colegio.com.br')) {
-      if (role !== 'teacher') {
-        router.push('/');
-        return;
-      }
+      SupabaseMock.login('escola@colegio.com.br', 'Colégio Integral Exponent', 'teacher');
+      email = 'escola@colegio.com.br';
+      role = 'teacher';
+      name = 'Colégio Integral Exponent';
     }
 
-    const currentSchoolEmail = email || 'escola@colegio.com.br';
+    const currentSchoolEmail = email;
     setSchoolEmail(currentSchoolEmail);
     setSchoolName(name || 'Colégio Integral Exponent');
     setCourses(SupabaseMock.getCourses());
     
-    // Load school linked students from localStorage
+    // Carrega a lista de alunos vinculados à escola do localStorage
     const saved = localStorage.getItem(`clube_flix_school_students_${currentSchoolEmail}`);
     let list: string[] = [];
     if (saved) {
