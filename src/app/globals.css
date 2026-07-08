@@ -2,16 +2,16 @@
 
 :root {
   /* Color Palette */
-  --bg-deep: #060609;
-  --bg-surface: #0e0e16;
-  --bg-card: rgba(22, 22, 34, 0.65);
-  --bg-card-hover: rgba(30, 30, 46, 0.85);
-  --bg-glass: rgba(10, 10, 15, 0.75);
+  --bg-deep: #040814;
+  --bg-surface: #091129;
+  --bg-card: rgba(13, 27, 62, 0.65);
+  --bg-card-hover: rgba(20, 38, 86, 0.85);
+  --bg-glass: rgba(7, 13, 29, 0.75);
   
   --accent: #c9a84c;
   --accent-glowing: #f1d37a;
   --accent-gradient: linear-gradient(135deg, #c9a84c 0%, #f5df9e 100%);
-  --accent-gradient-radial: radial-gradient(circle, #c9a84c 0%, #060609 80%);
+  --accent-gradient-radial: radial-gradient(circle, #c9a84c 0%, #040814 80%);
   --purple-gradient: linear-gradient(135deg, #7928ca 0%, #ff0080 100%);
   
   --text-primary: #ffffff;

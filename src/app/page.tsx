@@ -15,7 +15,10 @@ import {
   Mail, 
   BookOpen, 
   CheckCircle2, 
-  LineChart 
+  LineChart,
+  GraduationCap,
+  ChevronDown,
+  Menu
 } from 'lucide-react';
 
 const QUIZ_QUESTIONS = [
@@ -233,141 +236,239 @@ export default function LandingPage() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Navigation Header */}
-      <header className="glass" style={{
-        position: 'sticky', top: 0, zIndex: 100,
-        padding: '16px 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-deep)' }}>
+      
+      {/* Top Gold Promo Bar */}
+      <div style={{
+        background: 'var(--accent)',
+        color: '#000',
+        padding: '8px 16px',
+        textAlign: 'center',
+        fontWeight: 'bold',
+        fontSize: '11px',
+        letterSpacing: '0.15em',
+        zIndex: 110,
+        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{
-            background: 'var(--accent)', width: 36, height: 36, borderRadius: '50%',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold'
-          }}>CF</div>
-          <span style={{ fontSize: 22, fontWeight: 800, fontFamily: 'var(--font-title)' }}>
-            CLUBE<span className="gradient-text">FLIX</span>
-          </span>
-        </div>
+        TURMAS 2026 COM VAGAS LIMITADAS | ENCERRA EM: <span style={{ fontFamily: 'monospace', marginLeft: '6px' }}>04:59:00</span>
+      </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          {currentUser ? (
-            <>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14 }}>
-                <span className="glass" style={{ padding: '4px 8px', borderRadius: 4, textTransform: 'capitalize', fontSize: 11, background: 'rgba(255,255,255,0.05)' }}>
-                  {currentUser.role === 'teacher' ? 'Professor' : currentUser.role === 'parent' ? 'Responsável' : 'Estudante'}
-                </span>
-                <span style={{ fontWeight: 600 }}>{currentUser.name}</span>
-              </div>
-              <button 
-                onClick={() => {
-                  if (currentUser.role === 'teacher') router.push('/dashboard/teacher');
-                  else if (currentUser.role === 'parent') router.push('/dashboard/parent');
-                  else router.push('/vitrine');
-                }}
-                className="btn-secondary" 
-                style={{ padding: '8px 16px', fontSize: 13 }}
-              >
-                Acessar Plataforma
-              </button>
-              <button onClick={handleLogout} style={{ background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                <LogOut size={18} color="var(--text-muted)" />
-              </button>
-            </>
-          ) : (
-            <>
-              <button 
+      {/* Floating Navigation Header */}
+      <div style={{
+        position: 'sticky', top: 0, zIndex: 100, width: '100%', padding: '0 5%'
+      }}>
+        <header className="glass" style={{
+          margin: '20px auto 0 auto',
+          maxWidth: '1200px',
+          padding: '12px 28px',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          borderRadius: '2rem',
+          border: '1px solid rgba(201, 168, 76, 0.1)',
+          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
+        }}>
+          {/* Logo brand */}
+          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 0.8, cursor: 'pointer' }} onClick={() => router.push('/')}>
+            <span style={{ fontSize: '9px', fontWeight: 'bold', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em', marginBottom: '2px', paddingLeft: '2px' }}>
+              Professor
+            </span>
+            <span style={{ fontSize: 22, fontWeight: 900, fontFamily: 'var(--font-title)', letterSpacing: '-0.02em', color: '#fff' }}>
+              CLAUDIO<span style={{ color: 'var(--accent)' }}>_BRUM</span>
+            </span>
+          </div>
+
+          {/* Nav links */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+            <nav className="hidden lg:flex" style={{ display: 'flex', gap: 24, fontSize: '13px', fontWeight: 'bold', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
+              <span className="cursor-pointer hover:text-primary" style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}>
+                Cursos <ChevronDown size={14} />
+              </span>
+              <span style={{ cursor: 'pointer' }}>Metodologia</span>
+              <span style={{ cursor: 'pointer' }}>Aprovados</span>
+              <span 
                 onClick={() => { setShowLoginModal(true); setLoginRole('student'); }}
-                style={{ background: 'transparent', color: '#fff', fontWeight: 600, cursor: 'pointer' }}
+                style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'rgba(201, 168, 76, 0.85)', cursor: 'pointer', border: '1px solid rgba(201, 168, 76, 0.2)', padding: '6px 12px', borderRadius: '12px' }}
               >
-                Entrar
-              </button>
-              <button onClick={() => setShowQuiz(true)} className="btn-primary" style={{ padding: '10px 20px', fontSize: 14 }}>
-                Diagnóstico Grátis
-              </button>
-            </>
-          )}
-        </div>
-      </header>
+                Área do Aluno
+              </span>
+              <span onClick={() => setShowQuiz(true)} style={{ cursor: 'pointer', color: 'var(--accent)' }}>Diagnóstico</span>
+            </nav>
 
-      {/* Main Hero & Content */}
-      <main style={{ flex: 1, padding: '60px 5%' }}>
-        {!showQuiz ? (
-          <>
-            <div style={{
-              display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'center',
-              margin: '40px 0 80px 0'
-            }}>
-              <div>
-                <span style={{
-                  color: 'var(--accent)', fontWeight: 800, fontSize: 14, textTransform: 'uppercase',
-                  letterSpacing: 2, display: 'block', marginBottom: 12
-                }}>
-                  LMS EDTECH SAAS - PROFESSOR CLÁUDIO BRUM
-                </span>
-                <h1 style={{ fontSize: 52, lineHeight: 1.1, marginBottom: 20 }}>
-                  Acelere sua aprovação em <span className="gradient-text">Física & Matemática</span>
-                </h1>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 18, lineHeight: 1.6, marginBottom: 32 }}>
-                  Uma plataforma de streaming educacional assíncrona feita sob medida para vestibulandos, concurseiros e estudantes de exatas. Vídeos protegidos, anotações inteligentes e relatórios completos para seus pais.
-                </p>
-
-                <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
-                  <button onClick={() => setShowQuiz(true)} className="btn-primary" style={{ padding: '16px 36px', fontSize: 16 }}>
-                    Fazer Teste de Diagnóstico <ArrowRight size={18} />
-                  </button>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              {currentUser ? (
+                <>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
+                    <span style={{ fontWeight: 600 }}>{currentUser.name}</span>
+                  </div>
                   <button 
                     onClick={() => {
-                      // Redirect direct subscription
-                      router.push('/checkout');
+                      if (currentUser.role === 'teacher') router.push('/dashboard/teacher');
+                      else if (currentUser.role === 'parent') router.push('/dashboard/parent');
+                      else router.push('/vitrine');
                     }}
-                    className="btn-secondary" 
-                    style={{ padding: '16px 36px', fontSize: 16 }}
+                    className="btn-primary" 
+                    style={{ padding: '8px 16px', fontSize: 11, borderRadius: '12px' }}
                   >
-                    Assinar Agora
+                    Entrar
                   </button>
-                </div>
-              </div>
+                  <button onClick={handleLogout} style={{ background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+                    <LogOut size={16} color="var(--text-muted)" />
+                  </button>
+                </>
+              ) : (
+                <button 
+                  onClick={() => router.push('/checkout')}
+                  className="btn-primary" 
+                  style={{
+                    padding: '10px 20px', 
+                    fontSize: '11px', 
+                    borderRadius: '12px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em'
+                  }}
+                >
+                  Quero Minha Vaga
+                </button>
+              )}
+            </div>
+          </div>
+        </header>
+      </div>
 
-              {/* Right Side - Features Highlight */}
-              <div className="glass floating" style={{ padding: 40, borderRadius: 24, position: 'relative' }}>
+      {/* Main Hero & Content */}
+      <main style={{ flex: 1, padding: '0 5% 60px 5%' }}>
+        {!showQuiz ? (
+          <>
+            {/* Hero Banner Section with integrated professor photo */}
+            <div style={{
+              minHeight: '80vh',
+              borderRadius: '24px',
+              overflow: 'hidden',
+              margin: '30px auto 60px auto',
+              maxWidth: '1200px',
+              position: 'relative',
+              backgroundImage: `linear-gradient(to right, #040814 38%, rgba(4, 8, 20, 0.6) 68%, transparent 100%), url('/claudio_brum_banner.jpg')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center right',
+              backgroundRepeat: 'no-repeat',
+              display: 'flex',
+              alignItems: 'center',
+              padding: '60px',
+              border: '1px solid var(--border-glass)',
+              boxShadow: '0 25px 60px rgba(0,0,0,0.8)'
+            }}>
+              {/* Left Column Text */}
+              <div style={{ maxWidth: '650px', zIndex: 5 }}>
+                {/* Active Tag */}
                 <div style={{
-                  position: 'absolute', top: -20, right: -20, background: 'var(--purple-gradient)',
-                  padding: '6px 12px', borderRadius: 8, fontSize: 12, fontWeight: 'bold'
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '6px 16px',
+                  borderRadius: '30px',
+                  background: 'rgba(201, 168, 76, 0.08)',
+                  border: '1px solid rgba(201, 168, 76, 0.2)',
+                  color: '#fff',
+                  fontSize: '11px',
+                  fontWeight: 'bold',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.1em',
+                  marginBottom: '28px'
                 }}>
-                  100% Assíncrono
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent)', display: 'block' }} className="pulsing"></span>
+                  Turmas Abertas 2026 | Vagas Limitadas
                 </div>
-                <h3 style={{ fontSize: 24, marginBottom: 20, fontFamily: 'var(--font-title)' }}>Recursos Premium</h3>
-                
-                <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                  <div style={{ display: 'flex', gap: 16 }}>
-                    <div style={{ color: 'var(--accent)', marginTop: 2 }}><Shield size={22} /></div>
-                    <div>
-                      <h4 style={{ fontSize: 16, marginBottom: 4 }}>Panda/Bunny Security</h4>
-                      <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>Marca d&apos;água dinâmica com seu e-mail contra gravação de tela e pirataria.</p>
-                    </div>
-                  </div>
-                  
-                  <div style={{ display: 'flex', gap: 16 }}>
-                    <div style={{ color: 'var(--accent)', marginTop: 2 }}><LineChart size={22} /></div>
-                    <div>
-                      <h4 style={{ fontSize: 16, marginBottom: 4 }}>Controle Parental</h4>
-                      <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>Painel exclusivo para pais acompanharem métricas de progresso detalhadas do estudante.</p>
-                    </div>
-                  </div>
 
-                  <div style={{ display: 'flex', gap: 16 }}>
-                    <div style={{ color: 'var(--accent)', marginTop: 2 }}><Award size={22} /></div>
-                    <div>
-                      <h4 style={{ fontSize: 16, marginBottom: 4 }}>Diagnóstico Inteligente</h4>
-                      <p style={{ color: 'var(--text-secondary)', fontSize: 13 }}>Avaliação gratuita de nivelamento recomendando trilhas focadas em suas fraquezas.</p>
-                    </div>
+                <h1 style={{
+                  fontSize: '52px',
+                  lineHeight: '1.08',
+                  fontWeight: 900,
+                  marginBottom: '24px',
+                  fontFamily: 'var(--font-title)',
+                  textShadow: '0 2px 10px rgba(0,0,0,0.8)'
+                }}>
+                  A <span style={{ color: 'var(--accent)' }}>aprovação</span> que você sempre sonhou começa aqui.
+                </h1>
+                
+                <p style={{
+                  color: 'var(--text-secondary)',
+                  fontSize: '17px',
+                  lineHeight: '1.6',
+                  marginBottom: '32px',
+                  maxWidth: '520px'
+                }}>
+                  Concursos militares, escolas técnicas federais ou reforço escolar, o <strong style={{ color: '#fff' }}>Método Professor Claudio Brum</strong> já aprovou mais de 500 alunos e o próximo pode ser você (ou seu filho).
+                </p>
+
+                {/* Pill categories */}
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '36px' }}>
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px',
+                    borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(52, 211, 153, 0.2)',
+                    fontSize: '13px', fontWeight: 'bold', color: '#a7f3d0'
+                  }}>
+                    <Shield size={14} /> Concursos Militares
                   </div>
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px',
+                    borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(56, 189, 248, 0.2)',
+                    fontSize: '13px', fontWeight: 'bold', color: '#bae6fd'
+                  }}>
+                    <GraduationCap size={14} /> Escolas Técnicas e Federais
+                  </div>
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px',
+                    borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(139, 92, 246, 0.2)',
+                    fontSize: '13px', fontWeight: 'bold', color: '#ddd6fe'
+                  }}>
+                    <BookOpen size={14} /> Acompanhamento Escolar
+                  </div>
+                </div>
+
+                {/* CTAs */}
+                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                  <button 
+                    onClick={() => router.push('/checkout')}
+                    className="btn-primary" 
+                    style={{ padding: '16px 36px', fontSize: '15px', color: '#000', fontWeight: '900' }}
+                  >
+                    Quero Garantir Minha Vaga
+                  </button>
+                  <button 
+                    onClick={() => setShowQuiz(true)}
+                    className="btn-secondary" 
+                    style={{ padding: '16px 36px', fontSize: '15px', border: '1px solid rgba(255,255,255,0.1)' }}
+                  >
+                    Conhecer os Cursos <ChevronDown size={16} />
+                  </button>
                 </div>
               </div>
             </div>
 
+            {/* Bottom Info Indicators Row */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(3, 1fr)',
+              gap: '24px',
+              maxWidth: '1200px',
+              margin: '-30px auto 60px auto',
+              padding: '0 20px',
+              textAlign: 'center'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px' }}>
+                <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>✓</span> +1.500 aprovados
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', justifySelf: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px' }}>
+                <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>✓</span> 20+ anos de experiência
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', justifySelf: 'center', gap: '8px', color: 'var(--text-secondary)', fontSize: '14px' }}>
+                <span style={{ color: 'var(--accent)', fontWeight: 'bold' }}>✓</span> Militares, Técnicas & Reforço
+              </div>
+            </div>
+
             {/* Quick Demo Credentials Panel for testing */}
-            <div className="glass" style={{ padding: 24, borderRadius: 16, marginBottom: 60, border: '1px solid rgba(201, 168, 76, 0.2)' }}>
+            <div className="glass" style={{ margin: '0 auto 60px auto', maxWidth: '1200px', padding: 24, borderRadius: 16, border: '1px solid rgba(201, 168, 76, 0.2)' }}>
               <h3 style={{ fontSize: 18, marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
                 <Users size={20} color="var(--accent)" />
                 Painel de Teste Rápido (Protótipo Funcional)
@@ -376,7 +477,7 @@ export default function LandingPage() {
                 Use os botões de simulação abaixo para testar instantaneamente a proteção de rotas (middleware), os painéis de controle e o player seguro.
               </p>
               <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                <button onClick={() => handleQuickLogin('teacher')} className="btn-primary" style={{ background: '#7928ca', boxShadow: 'none', fontSize: 13, padding: '8px 16px' }}>
+                <button onClick={() => handleQuickLogin('teacher')} className="btn-primary" style={{ background: 'var(--purple-gradient)', color: '#fff', boxShadow: 'none', fontSize: 13, padding: '8px 16px' }}>
                   Acessar como Prof. Cláudio Brum (Dashboard Professor)
                 </button>
                 <button onClick={() => handleQuickLogin('student', true)} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px' }}>
@@ -394,7 +495,7 @@ export default function LandingPage() {
             {/* Professor Cláudio Brum Section */}
             <div style={{
               display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: 40, alignItems: 'center',
-              margin: '60px 0 20px 0', borderTop: '1px solid var(--border-glass)', paddingTop: 60
+              margin: '60px auto 40px auto', maxWidth: '1200px', borderTop: '1px solid var(--border-glass)', paddingTop: 60
             }}>
               {/* Photo Card */}
               <div style={{ position: 'relative' }}>
@@ -447,6 +548,36 @@ export default function LandingPage() {
                     <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>Foco em resolver problemas complexos com métodos visuais</span>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Visual Features Section */}
+            <div style={{
+              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px',
+              maxWidth: '1200px', margin: '40px auto 20px auto', borderTop: '1px solid var(--border-glass)', paddingTop: 60
+            }}>
+              <div className="glass" style={{ padding: 32, borderRadius: 20 }}>
+                <div style={{ color: 'var(--accent)', marginBottom: 16 }}><Shield size={28} /></div>
+                <h3 style={{ fontSize: 18, marginBottom: 10, fontFamily: 'var(--font-title)' }}>Panda/Bunny Security</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.5 }}>
+                  Marca d&apos;água dinâmica com o e-mail do usuário flutuando na tela, criptografia HLS e chaves temporárias para bloquear gravação de tela e downloads não autorizados.
+                </p>
+              </div>
+
+              <div className="glass" style={{ padding: 32, borderRadius: 20 }}>
+                <div style={{ color: 'var(--accent)', marginBottom: 16 }}><LineChart size={28} /></div>
+                <h3 style={{ fontSize: 18, marginBottom: 10, fontFamily: 'var(--font-title)' }}>Controle Parental</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.5 }}>
+                  Painel exclusivo para os pais vincularem e acompanharem o tempo de estudo, evolução do progresso e emissão automática de relatórios acadêmicos.
+                </p>
+              </div>
+
+              <div className="glass" style={{ padding: 32, borderRadius: 20 }}>
+                <div style={{ color: 'var(--accent)', marginBottom: 16 }}><Award size={28} /></div>
+                <h3 style={{ fontSize: 18, marginBottom: 10, fontFamily: 'var(--font-title)' }}>Diagnóstico Gratuito</h3>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 13, lineHeight: 1.5 }}>
+                  Avaliação interativa de nivelamento com recomendação instantânea de trilhas de aprendizado personalizadas focadas nas maiores deficiências de exatas.
+                </p>
               </div>
             </div>
           </>
