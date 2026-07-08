@@ -424,10 +424,16 @@ export default function LandingPage() {
                         style={{
                           padding: '16px 20px', borderRadius: 8, cursor: 'pointer', textAlign: 'left',
                           fontSize: 15, transition: 'var(--transition-smooth)', display: 'block', width: '100%',
-                          background: 'rgba(255,255,255,0.02)'
+                          background: 'rgba(255, 255, 255, 0.06)', color: '#ffffff'
                         }}
-                        onMouseEnter={(e) => e.currentTarget.style.borderColor = 'var(--accent)'}
-                        onMouseLeave={(e) => e.currentTarget.style.borderColor = 'var(--border-glass)'}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--accent)';
+                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.12)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--border-glass)';
+                          e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
+                        }}
                       >
                         {opt.text}
                       </button>
