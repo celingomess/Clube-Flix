@@ -67,9 +67,36 @@ function CheckoutForm() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-deep)', width: '100%' }}>
       {/* Small Header */}
-      <header className="glass" style={{ padding: '16px 5%', display: 'flex', justifyContent: 'center' }}>
-        <span style={{ fontSize: 20, fontWeight: 800, fontFamily: 'var(--font-title)' }}>
-          CLUBE<span className="gradient-text">FLIX</span> <span style={{ fontSize: 13, color: 'var(--text-muted)', fontWeight: 400 }}>| SECURE CHECKOUT</span>
+      <header className="glass" style={{ padding: '16px 5%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 14 }}>
+        <div 
+          style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, fontFamily: 'var(--font-title)', cursor: 'pointer' }} 
+          onClick={() => router.push('/')}
+        >
+          <span style={{ 
+            fontSize: '8px', 
+            fontWeight: 700, 
+            color: '#7a8b9e', 
+            letterSpacing: '2.5px', 
+            textTransform: 'uppercase',
+            marginBottom: '3px'
+          }}>
+            PROFESSOR CLAUDIO BRUM
+          </span>
+          <span style={{ 
+            fontSize: '20px', 
+            fontWeight: 900, 
+            letterSpacing: '-0.5px',
+            display: 'flex',
+            alignItems: 'center'
+          }}>
+            <span style={{ color: '#ffffff' }}>CLUBE</span>
+            <span style={{ color: '#c9a84c', margin: '0 1px', fontWeight: 900, transform: 'translateY(1px)' }}>_</span>
+            <span style={{ color: '#c9a84c' }}>FLIX</span>
+          </span>
+        </div>
+        <div style={{ height: '18px', width: '1px', background: 'rgba(255, 255, 255, 0.15)' }}></div>
+        <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400, letterSpacing: '1px', textTransform: 'uppercase' }}>
+          Secure Checkout
         </span>
       </header>
 

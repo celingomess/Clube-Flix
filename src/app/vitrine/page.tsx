@@ -117,13 +117,30 @@ export default function VitrinePage() {
         padding: '16px 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center'
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }} onClick={() => router.push('/vitrine')}>
-            <div style={{
-              background: 'var(--accent)', width: 36, height: 36, borderRadius: '50%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold'
-            }}>CF</div>
-            <span style={{ fontSize: 22, fontWeight: 800, fontFamily: 'var(--font-title)' }}>
-              CLUBE<span className="gradient-text">FLIX</span>
+          <div 
+            style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, fontFamily: 'var(--font-title)', cursor: 'pointer' }} 
+            onClick={() => router.push('/vitrine')}
+          >
+            <span style={{ 
+              fontSize: '8px', 
+              fontWeight: 700, 
+              color: '#7a8b9e', 
+              letterSpacing: '2.5px', 
+              textTransform: 'uppercase',
+              marginBottom: '3px'
+            }}>
+              PROFESSOR CLAUDIO BRUM
+            </span>
+            <span style={{ 
+              fontSize: '22px', 
+              fontWeight: 900, 
+              letterSpacing: '-0.5px',
+              display: 'flex',
+              alignItems: 'center'
+            }}>
+              <span style={{ color: '#ffffff' }}>CLUBE</span>
+              <span style={{ color: '#c9a84c', margin: '0 1px', fontWeight: 900, transform: 'translateY(1px)' }}>_</span>
+              <span style={{ color: '#c9a84c' }}>FLIX</span>
             </span>
           </div>
 
