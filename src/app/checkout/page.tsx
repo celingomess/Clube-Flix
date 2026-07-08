@@ -69,49 +69,55 @@ function CheckoutForm() {
       {/* Small Header */}
       <header className="glass" style={{ padding: '16px 5%', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 16 }}>
         <div 
-          style={{ display: 'flex', alignItems: 'center', gap: 16, cursor: 'pointer' }} 
+          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} 
           onClick={() => router.push('/')}
         >
-          {/* Logo do Professor */}
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, fontFamily: 'var(--font-title)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', position: 'relative', paddingTop: '10px' }}>
             <span style={{ 
-              fontSize: '8px', 
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              fontSize: '7px', 
               fontWeight: 700, 
               color: '#7a8b9e', 
               letterSpacing: '2.5px', 
-              textTransform: 'uppercase',
-              marginBottom: '2px'
+              textTransform: 'uppercase'
             }}>
               PROFESSOR
             </span>
-            <span style={{ 
-              fontSize: '18px', 
-              fontWeight: 900, 
-              letterSpacing: '-0.5px',
-              display: 'flex',
-              alignItems: 'center'
-            }}>
-              <span style={{ color: '#ffffff' }}>CLAUDIO</span>
-              <span style={{ color: '#c9a84c', margin: '0 1px', fontWeight: 900, transform: 'translateY(1px)' }}>_</span>
-              <span style={{ color: '#c9a84c' }}>BRUM</span>
-            </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+              {/* Nome do Professor */}
+              <span style={{ 
+                fontSize: '18px', 
+                fontWeight: 900, 
+                letterSpacing: '-0.5px',
+                display: 'flex',
+                alignItems: 'center',
+                lineHeight: 1
+              }}>
+                <span style={{ color: '#ffffff' }}>CLAUDIO</span>
+                <span style={{ color: '#c9a84c', margin: '0 1px', fontWeight: 900, transform: 'translateY(1px)' }}>_</span>
+                <span style={{ color: '#c9a84c' }}>BRUM</span>
+              </span>
+
+              {/* Separador */}
+              <div style={{ height: '18px', width: '1px', background: 'rgba(255, 255, 255, 0.15)' }}></div>
+
+              {/* Nome da Plataforma */}
+              <span style={{ 
+                fontSize: '18px', 
+                fontWeight: 800, 
+                fontFamily: 'var(--font-title)', 
+                letterSpacing: '-0.02em',
+                display: 'flex',
+                alignItems: 'center',
+                lineHeight: 1
+              }}>
+                <span style={{ color: '#ffffff' }}>CLUBE</span>
+                <span style={{ color: '#c9a84c' }}>FLIX</span>
+              </span>
+            </div>
           </div>
-
-          {/* Separador */}
-          <div style={{ height: '20px', width: '1px', background: 'rgba(255, 255, 255, 0.15)' }}></div>
-
-          {/* Nome da Plataforma */}
-          <span style={{ 
-            fontSize: '18px', 
-            fontWeight: 800, 
-            fontFamily: 'var(--font-title)', 
-            letterSpacing: '-0.02em',
-            display: 'flex',
-            alignItems: 'center'
-          }}>
-            <span style={{ color: '#ffffff' }}>CLUBE</span>
-            <span style={{ color: '#c9a84c' }}>FLIX</span>
-          </span>
         </div>
         <div style={{ height: '18px', width: '1px', background: 'rgba(255, 255, 255, 0.15)' }}></div>
         <span style={{ fontSize: 11, color: 'var(--text-muted)', fontWeight: 400, letterSpacing: '1px', textTransform: 'uppercase' }}>
