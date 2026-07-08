@@ -315,7 +315,7 @@ export default function LandingPage() {
                   color: 'var(--accent)', fontWeight: 800, fontSize: 13, textTransform: 'uppercase',
                   letterSpacing: 2, display: 'block', marginBottom: 12
                 }}>
-                  LMS EDTECH SAAS - STREAMING DE EXATAS
+                  MÉTODO CLÁUDIO BRUM - EXATAS DE ELITE
                 </span>
                 <h1 style={{ fontSize: 52, lineHeight: 1.1, marginBottom: 20, fontFamily: 'var(--font-title)' }}>
                   Acelere sua aprovação em <span className="gradient-text">Física & Matemática</span>
@@ -443,30 +443,7 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Quick Demo Credentials Panel for testing */}
-            <div className="glass" style={{ margin: '0 auto 60px auto', maxWidth: '1200px', padding: 24, borderRadius: 16, border: '1px solid rgba(201, 168, 76, 0.2)' }}>
-              <h3 style={{ fontSize: 18, marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
-                <Users size={20} color="var(--accent)" />
-                Painel de Teste Rápido (Protótipo Funcional)
-              </h3>
-              <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginBottom: 16 }}>
-                Use os botões de simulação abaixo para testar instantaneamente a proteção de rotas (middleware), os painéis de controle e o player seguro.
-              </p>
-              <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-                <button onClick={() => handleQuickLogin('teacher')} className="btn-primary" style={{ background: 'var(--purple-gradient)', color: '#fff', boxShadow: 'none', fontSize: 13, padding: '8px 16px' }}>
-                  Acessar como Prof. Cláudio Brum (Dashboard Professor)
-                </button>
-                <button onClick={() => handleQuickLogin('student', true)} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px' }}>
-                  Estudante Assinante (Acessa Vitrine & Player)
-                </button>
-                <button onClick={() => handleQuickLogin('student', false)} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px', border: '1px dashed #c9a84c' }}>
-                  Estudante Não-Assinante (Bloqueia Rotas & Checkout)
-                </button>
-                <button onClick={() => handleQuickLogin('parent')} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px' }}>
-                  Responsável/Pai (Dashboard Parental)
-                </button>
-              </div>
-            </div>
+
 
             {/* Professor Cláudio Brum Section */}
             <div style={{
