@@ -274,11 +274,11 @@ export default function TeacherDashboard() {
                     <button 
                       onClick={() => handleDeleteCourse(course.id)}
                       style={{
-                        background: 'rgba(229, 9, 20, 0.1)', color: 'var(--accent)', cursor: 'pointer',
+                        background: 'rgba(201, 168, 76, 0.1)', color: 'var(--accent)', cursor: 'pointer',
                         padding: 8, borderRadius: 8, display: 'flex', alignItems: 'center'
                       }}
-                      onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(229, 9, 20, 0.25)'}
-                      onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(229, 9, 20, 0.1)'}
+                      onMouseEnter={(e) => e.currentTarget.style.background = 'rgba(201, 168, 76, 0.25)'}
+                      onMouseLeave={(e) => e.currentTarget.style.background = 'rgba(201, 168, 76, 0.1)'}
                     >
                       <Trash2 size={16} />
                     </button>

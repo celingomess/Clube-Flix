@@ -177,7 +177,7 @@ function CheckoutForm() {
                   <label style={{
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                     padding: 16, borderRadius: 8, cursor: 'pointer', border: plan === 'monthly' ? '2px solid var(--accent)' : '1px solid var(--border-glass)',
-                    background: plan === 'monthly' ? 'rgba(229, 9, 20, 0.05)' : 'transparent'
+                    background: plan === 'monthly' ? 'rgba(201, 168, 76, 0.05)' : 'transparent'
                   }}>
                     <div>
                       <input type="radio" name="plan" checked={plan === 'monthly'} onChange={() => setPlan('monthly')} style={{ marginRight: 10 }} />
@@ -189,7 +189,7 @@ function CheckoutForm() {
                   <label style={{
                     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                     padding: 16, borderRadius: 8, cursor: 'pointer', border: plan === 'yearly' ? '2px solid var(--accent)' : '1px solid var(--border-glass)',
-                    background: plan === 'yearly' ? 'rgba(229, 9, 20, 0.05)' : 'transparent'
+                    background: plan === 'yearly' ? 'rgba(201, 168, 76, 0.05)' : 'transparent'
                   }}>
                     <div>
                       <input type="radio" name="plan" checked={plan === 'yearly'} onChange={() => setPlan('yearly')} style={{ marginRight: 10 }} />

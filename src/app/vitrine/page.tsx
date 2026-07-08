@@ -344,7 +344,7 @@ export default function VitrinePage() {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'translateY(-4px)';
-                    e.currentTarget.style.borderColor = 'rgba(229, 9, 20, 0.3)';
+                    e.currentTarget.style.borderColor = 'rgba(201, 168, 76, 0.3)';
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = 'translateY(0)';

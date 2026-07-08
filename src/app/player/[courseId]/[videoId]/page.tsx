@@ -134,7 +134,7 @@ export default function PlayerPage() {
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#e50914', '#ff7a00', '#ffffff', '#7928ca']
+        colors: ['#c9a84c', '#ff7a00', '#ffffff', '#7928ca']
       });
 
       // Save complete progress immediately
@@ -295,7 +295,7 @@ export default function PlayerPage() {
               >
                 <div style={{
                   background: 'var(--accent-gradient)', width: 64, height: 64, borderRadius: '50%',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 30px rgba(229, 9, 20, 0.4)'
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 0 30px rgba(201, 168, 76, 0.4)'
                 }}>
                   <Play size={28} fill="white" style={{ marginLeft: 4 }} />
                 </div>
@@ -420,7 +420,7 @@ export default function PlayerPage() {
                             onClick={() => router.push(`/player/${courseId}/${v.id}`)}
                             style={{
                               padding: 12, borderRadius: 8, cursor: 'pointer',
-                              background: active ? 'rgba(229, 9, 20, 0.08)' : 'rgba(255,255,255,0.01)',
+                              background: active ? 'rgba(201, 168, 76, 0.08)' : 'rgba(255,255,255,0.01)',
                               border: active ? '1px solid var(--accent)' : '1px solid var(--border-glass)',
                               display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                               transition: 'var(--transition-smooth)'

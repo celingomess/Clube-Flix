@@ -8,10 +8,10 @@
   --bg-card-hover: rgba(30, 30, 46, 0.85);
   --bg-glass: rgba(10, 10, 15, 0.75);
   
-  --accent: #e50914;
-  --accent-glowing: #ff3344;
-  --accent-gradient: linear-gradient(135deg, #e50914 0%, #ff5252 100%);
-  --accent-gradient-radial: radial-gradient(circle, #e50914 0%, #060609 80%);
+  --accent: #c9a84c;
+  --accent-glowing: #f1d37a;
+  --accent-gradient: linear-gradient(135deg, #c9a84c 0%, #f5df9e 100%);
+  --accent-gradient-radial: radial-gradient(circle, #c9a84c 0%, #060609 80%);
   --purple-gradient: linear-gradient(135deg, #7928ca 0%, #ff0080 100%);
   
   --text-primary: #ffffff;
@@ -19,9 +19,9 @@
   --text-muted: #627284;
   
   --border-glass: rgba(255, 255, 255, 0.06);
-  --border-glass-focus: rgba(229, 9, 20, 0.4);
+  --border-glass-focus: rgba(201, 168, 76, 0.4);
   
-  --shadow-neon: 0 0 25px rgba(229, 9, 20, 0.25);
+  --shadow-neon: 0 0 25px rgba(201, 168, 76, 0.25);
   --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
   
   --font-title: 'Outfit', sans-serif;
@@ -64,7 +64,7 @@ html, body {
 body {
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(229, 9, 20, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 10% 20%, rgba(201, 168, 76, 0.04) 0%, transparent 40%),
     radial-gradient(circle at 90% 80%, rgba(121, 40, 202, 0.03) 0%, transparent 40%);
   background-attachment: fixed;
 }
@@ -155,7 +155,7 @@ a {
   cursor: pointer;
   transition: var(--transition-elastic);
   font-family: var(--font-title);
-  box-shadow: 0 4px 14px rgba(229, 9, 20, 0.3);
+  box-shadow: 0 4px 14px rgba(201, 168, 76, 0.3);
 }
 
 .btn-primary:hover {
@@ -203,7 +203,7 @@ a {
 
 .input-field:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(229, 9, 20, 0.15);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.15);
   background: rgba(0, 0, 0, 0.5);
 }
 

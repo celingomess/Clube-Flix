@@ -367,7 +367,7 @@ export default function LandingPage() {
             </div>
 
             {/* Quick Demo Credentials Panel for testing */}
-            <div className="glass" style={{ padding: 24, borderRadius: 16, marginBottom: 60, border: '1px solid rgba(229, 9, 20, 0.2)' }}>
+            <div className="glass" style={{ padding: 24, borderRadius: 16, marginBottom: 60, border: '1px solid rgba(201, 168, 76, 0.2)' }}>
               <h3 style={{ fontSize: 18, marginBottom: 12, display: 'flex', alignItems: 'center', gap: 8 }}>
                 <Users size={20} color="var(--accent)" />
                 Painel de Teste Rápido (Protótipo Funcional)
@@ -382,7 +382,7 @@ export default function LandingPage() {
                 <button onClick={() => handleQuickLogin('student', true)} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px' }}>
                   Estudante Assinante (Acessa Vitrine & Player)
                 </button>
-                <button onClick={() => handleQuickLogin('student', false)} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px', border: '1px dashed #e50914' }}>
+                <button onClick={() => handleQuickLogin('student', false)} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px', border: '1px dashed #c9a84c' }}>
                   Estudante Não-Assinante (Bloqueia Rotas & Checkout)
                 </button>
                 <button onClick={() => handleQuickLogin('parent')} className="btn-secondary" style={{ fontSize: 13, padding: '8px 16px' }}>
