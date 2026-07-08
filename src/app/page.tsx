@@ -531,15 +531,15 @@ export default function LandingPage() {
                   QUEM É CLÁUDIO BRUM
                 </span>
                 <h2 style={{ fontSize: 36, lineHeight: 1.2, marginBottom: 20, fontFamily: 'var(--font-title)' }}>
-                  Não é só um professor.<br/>É o <span style={{ color: 'var(--accent)' }}>estrategista</span> da sua aprovação.
+                  Muito mais que ensinar exatas:<br/>a <span style={{ color: 'var(--accent)' }}>engenharia</span> por trás da sua aprovação.
                 </h2>
                 
                 <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginBottom: 16 }}>
-                  Com mais de <strong>20 anos de experiência</strong> na preparação para concursos e no ensino de Matemática, Cláudio Brum é graduado em Física e Matemática e especialista em Psicopedagogia. Foi o idealizador do <em>Clube da Matemática</em>, um projeto focado em descomplicar o aprendizado e destravar a mente dos alunos para as provas mais exigentes.
+                  Cláudio Brum não é apenas um professor; ele é o estrategista que vai guiar a sua jornada rumo à vaga dos seus sonhos. Com mais de <strong>20 anos de experiência</strong> dedicados a aprovar estudantes nas bancas mais difíceis do país, Cláudio une sua formação sólida em Física e Matemática à sua especialização em Psicopedagogia. Criador do aclamado <em>Clube da Matemática</em>, ele desenvolveu uma metodologia única para desmistificar as exatas e destravar o potencial lógico de cada aluno.
                 </p>
                 
                 <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginBottom: 24 }}>
-                  Um pilar fundamental do seu método vem de sua experiência como <strong>saxofonista</strong>. Matemática e música são linguagens baseadas em padrões e disciplina. Ao aplicar o rigor do treino musical aos estudos, com repetição estratégica, correção de erros e refinamento daily, ele ensina o aluno a resolver questões de forma quase automática. O resultado é um método em que a aprovação não é acaso, mas consequência de um processo bem estruturado.
+                  O grande segredo por trás do seu método inovador vem de uma paixão paralela: a música. Como <strong>saxofonista profissional</strong>, Cláudio compreende que a matemática e a harmonia musical compartilham a mesma essência — padrões, ritmo e disciplina. Ao trazer o rigor técnico e a repetição estratégica do treino musical para a rotina de estudos, ele ensina o aluno a identificar e resolver questões de forma natural e automatizada. Aqui, a aprovação deixa de ser uma questão de sorte e passa a ser a consequência inevitável de um treinamento de elite.
                 </p>
 
                 {/* 4 Stats Cards */}
