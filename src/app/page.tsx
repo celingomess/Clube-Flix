@@ -494,28 +494,30 @@ export default function LandingPage() {
 
             {/* Professor Cláudio Brum Section */}
             <div style={{
-              display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: 40, alignItems: 'center',
+              display: 'grid', gridTemplateColumns: '0.9fr 1.1fr', gap: 50, alignItems: 'center',
               margin: '60px auto 40px auto', maxWidth: '1200px', borderTop: '1px solid var(--border-glass)', paddingTop: 60
             }}>
               {/* Photo Card */}
               <div style={{ position: 'relative' }}>
                 <div style={{
                   position: 'absolute', top: -15, left: -15, right: 15, bottom: 15,
-                  background: 'var(--accent-gradient)', borderRadius: 20, zIndex: 1, opacity: 0.15, filter: 'blur(8px)'
+                  background: 'var(--accent-gradient)', borderRadius: 24, zIndex: 1, opacity: 0.15, filter: 'blur(8px)'
                 }}></div>
                 <div className="glass" style={{
-                  position: 'relative', zIndex: 2, borderRadius: 20, overflow: 'hidden',
-                  border: '1px solid var(--border-glass)', padding: 12, display: 'flex', flexDirection: 'column'
+                  position: 'relative', zIndex: 2, borderRadius: 24, overflow: 'hidden',
+                  border: '1px solid rgba(201, 168, 76, 0.15)', padding: 16, display: 'flex', flexDirection: 'column'
                 }}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src="/claudio_brum.jpg" 
                     alt="Professor Cláudio Brum" 
-                    style={{ width: '100%', borderRadius: 12, display: 'block', objectFit: 'cover', aspectRatio: '1/1' }}
+                    style={{ width: '100%', borderRadius: 16, display: 'block', objectFit: 'cover', aspectRatio: '1/1' }}
                   />
-                  <div style={{ padding: '16px 8px 8px 8px', textAlign: 'center' }}>
-                    <strong style={{ fontSize: 18, display: 'block', marginBottom: 4 }}>Prof. Cláudio Brum</strong>
-                    <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>Fundador & Mentor do Clube Flix</span>
+                  <div style={{ padding: '20px 8px 8px 8px', textAlign: 'center' }}>
+                    <strong style={{ fontSize: 20, display: 'block', marginBottom: 6, fontFamily: 'var(--font-title)' }}>Prof. Cláudio Brum</strong>
+                    <span style={{ fontSize: 13, color: 'var(--accent)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                      Estrategista da sua Aprovação
+                    </span>
                   </div>
                 </div>
               </div>
@@ -524,28 +526,47 @@ export default function LandingPage() {
               <div>
                 <span style={{
                   color: 'var(--accent)', fontWeight: 800, fontSize: 12, textTransform: 'uppercase',
-                  letterSpacing: 2, display: 'block', marginBottom: 10
+                  letterSpacing: 2, display: 'block', marginBottom: 12
                 }}>
-                  SEU MENTOR NAS EXATAS
+                  QUEM É CLÁUDIO BRUM
                 </span>
-                <h2 style={{ fontSize: 32, marginBottom: 16, fontFamily: 'var(--font-title)' }}>
-                  Aprenda com quem transforma teoria complexa em aprovação prática
+                <h2 style={{ fontSize: 36, lineHeight: 1.2, marginBottom: 20, fontFamily: 'var(--font-title)' }}>
+                  Não é só um professor.<br/>É o <span style={{ color: 'var(--accent)' }}>estrategista</span> da sua aprovação.
                 </h2>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.6, marginBottom: 20 }}>
-                  Com mais de 15 anos de experiência lecionando física, cálculo e raciocínio lógico, o Professor Cláudio Brum projetou o Clube Flix para resolver as dificuldades reais dos estudantes de exatas.
+                
+                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginBottom: 16 }}>
+                  Com mais de <strong>20 anos de experiência</strong> na preparação para concursos e no ensino de Matemática, Cláudio Brum é graduado em Física e Matemática e especialista em Psicopedagogia. Foi o idealizador do <em>Clube da Matemática</em>, um projeto focado em descomplicar o aprendizado e destravar a mente dos alunos para as provas mais exigentes.
                 </p>
-                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.6, marginBottom: 24 }}>
-                  Nossas aulas são desenhadas com metodologia visual e raciocínio conceitual passo a passo, eliminando a necessidade de memorização de fórmulas cegas e permitindo que você estude com 100% de autonomia e foco assíncrono.
+                
+                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.7, marginBottom: 24 }}>
+                  Um pilar fundamental do seu método vem de sua experiência como <strong>saxofonista</strong>. Matemática e música são linguagens baseadas em padrões e disciplina. Ao aplicar o rigor do treino musical aos estudos, com repetição estratégica, correção de erros e refinamento daily, ele ensina o aluno a resolver questões de forma quase automática. O resultado é um método em que a aprovação não é acaso, mas consequência de um processo bem estruturado.
                 </p>
 
+                {/* 4 Stats Cards */}
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-                  <div className="glass" style={{ padding: 16, borderRadius: 12 }}>
-                    <strong style={{ display: 'block', fontSize: 18, color: 'var(--accent)', marginBottom: 4 }}>+15 Anos</strong>
-                    <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>De docência e aprovações em vestibulares e concursos</span>
+                  <div className="glass" style={{ padding: '16px 20px', borderRadius: 16, border: '1px solid rgba(255,255,255,0.03)' }}>
+                    <strong style={{ display: 'block', fontSize: 24, color: 'var(--accent)', marginBottom: 4 }}>20+</strong>
+                    <span style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.4, display: 'block' }}>
+                      Anos preparando para concursos, escolas técnicas e reforço
+                    </span>
                   </div>
-                  <div className="glass" style={{ padding: 16, borderRadius: 12 }}>
-                    <strong style={{ display: 'block', fontSize: 18, color: 'var(--accent)', marginBottom: 4 }}>Didática Prática</strong>
-                    <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>Foco em resolver problemas complexos com métodos visuais</span>
+                  <div className="glass" style={{ padding: '16px 20px', borderRadius: 16, border: '1px solid rgba(255,255,255,0.03)' }}>
+                    <strong style={{ display: 'block', fontSize: 24, color: 'var(--accent)', marginBottom: 4 }}>500+</strong>
+                    <span style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.4, display: 'block' }}>
+                      Alunos aprovados em concursos militares, CEFET, IFRJ e Pedro II
+                    </span>
+                  </div>
+                  <div className="glass" style={{ padding: '16px 20px', borderRadius: 16, border: '1px solid rgba(255,255,255,0.03)' }}>
+                    <strong style={{ display: 'block', fontSize: 24, color: 'var(--accent)', marginBottom: 4 }}>94%</strong>
+                    <span style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.4, display: 'block' }}>
+                      Taxa de aprovação dos alunos que seguem o método completo
+                    </span>
+                  </div>
+                  <div className="glass" style={{ padding: '16px 20px', borderRadius: 16, border: '1px solid rgba(255,255,255,0.03)' }}>
+                    <strong style={{ display: 'block', fontSize: 24, color: 'var(--accent)', marginBottom: 4 }}>3</strong>
+                    <span style={{ fontSize: 12, color: 'var(--text-secondary)', lineHeight: 1.4, display: 'block' }}>
+                      Pilares: Militares, Escolas Técnicas e Reforço Escolar
+                    </span>
                   </div>
                 </div>
               </div>
