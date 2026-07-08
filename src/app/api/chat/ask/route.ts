@@ -55,9 +55,9 @@ Na minha analogia favorita: pense na inércia como a **pausa na música**. A pau
     } else if (qLower.includes('segunda lei') || qLower.includes('2ª lei') || qLower.includes('f = m') || qLower.includes('aceleração') || qLower.includes('aceleracao')) {
       answer = `A **Segunda Lei de Newton (Princípio Fundamental da Dinâmica)** estabelece que a força resultante aplicada a um corpo é igual ao produto de sua massa pela aceleração: 
       
-\\[F = m \\cdot a\\]
+> **F = m * a**
 
-Na música, pense no **sopro do saxofone**: quanto mais força ($F$) você coloca no ar, mais rápida é a variação da coluna de ar, gerando uma aceleração sonora ($a$). A massa ($m$) seria a resistência mecânica da palheta do sax. Qual exercício dessa fórmula está te desafiando agora?`;
+Na música, pense no **sopro do saxofone**: quanto mais força (F) você coloca no ar, mais rápida é a variação da coluna de ar, gerando uma aceleração sonora (a). A massa (m) seria a resistência mecânica da palheta do sax. Qual exercício dessa fórmula está te desafiando agora?`;
     } else if (qLower.includes('terceira lei') || qLower.includes('3ª lei') || qLower.includes('ação e reação') || qLower.includes('acao e reacao')) {
       answer = `A **Terceira Lei de Newton (Ação e Reação)** afirma que para toda força de ação, existe uma força de reação de mesma intensidade, mesma direção e sentido oposto.
       
@@ -65,12 +65,12 @@ Pense nisso como um **dueto musical**: quando você pressiona a chave do instrum
     } else if (qLower.includes('lei') && qLower.includes('newton')) {
       answer = `As **Leis de Newton** regem a mecânica clássica:
 1. **1ª Lei (Inércia)**: Um corpo mantém seu estado até que uma força o perturbe.
-2. **2ª Lei (Dinâmica)**: A força resultante é massa vezes aceleração ($F = m \\cdot a$).
+2. **2ª Lei (Dinâmica)**: A força resultante é massa vezes aceleração (F = m * a).
 3. **3ª Lei (Ação e Reação)**: Toda força gera uma força oposta de igual intensidade.
 
 Qual dessas três leis você gostaria que eu destrinchasse em detalhes com você?`;
     } else if (qLower.includes('limite') || qLower.includes('indeterminação') || qLower.includes('indeterminac')) {
-      answer = `Um **limite** estuda o comportamento de uma função quando nos aproximamos de um ponto. Quando encontramos uma indeterminação como $0/0$ ou $\\infty/\\infty$, significa apenas que a resposta está oculta.
+      answer = `Um **limite** estuda o comportamento de uma função quando nos aproximamos de um ponto. Quando encontramos uma indeterminação como 0/0 ou infinito/infinito, significa apenas que a resposta está oculta.
       
 Na música, é como um acorde dissonante: precisamos 'fatorar' ou simplificar a partitura (usando fatoração clássica ou a Regra de L'Hôpital) para encontrar a harmonia oculta. Tem algum limite específico de limite que queira resolver?`;
     } else if (qLower.includes('derivada') || qLower.includes('taxa de variação') || qLower.includes('taxa de variac')) {
@@ -80,7 +80,7 @@ Pense na música: a melodia é uma curva contínua. A derivada em um ponto é a 
     } else if (qLower.includes('tabela verdade') || qLower.includes('lógica') || qLower.includes('logica') || qLower.includes('proposição')) {
       answer = `No **Raciocínio Lógico (RLM)**, as proposições são notas puras: ou são verdadeiras (V) ou falsas (F). 
       
-A condicional $P \\rightarrow Q$ (Se P, então Q) é a mais cobrada. Lembre-se do padrão: ela só é Falsa no caso 'Vera Fischer' (V antecedente e F consequente). Todos os outros casos são Verdadeiros. Qual operador lógico você gostaria de analisar?`;
+A condicional **P -> Q** (Se P, então Q) é a mais cobrada. Lembre-se do padrão: ela só é Falsa no caso 'Vera Fischer' (V antecedente e F consequente). Todos os outros casos são Verdadeiros. Qual operador lógico você gostaria de analisar?`;
     } else {
       answer = `Olá! Sou o Cláudio Brum Digital. Como físico, matemático e saxofonista, vejo as exatas como uma grande partitura baseada em padrões. 
 
