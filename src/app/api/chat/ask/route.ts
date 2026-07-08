@@ -53,6 +53,22 @@ Pergunta do Aluno: "${question}"`;
       answer = `A Primeira Lei de Newton, também conhecida como Lei da Inércia, diz que todo corpo tende a permanecer em seu estado de repouso ou de movimento retilíneo uniforme, a menos que uma força resultante externa atue sobre ele.
 
 Na minha analogia favorita, pense na inércia como a pausa na música. A pausa, ou seja, o silêncio, quer continuar sendo silêncio, e uma nota longa sustentada quer continuar soando no mesmo tom, até que você mude o sopro e aplique uma força. Ficou claro como o silêncio e o movimento uniforme se parecem?`;
+    } else if (qLower.includes('triângulo') || qLower.includes('triangulo') || qLower.includes('equilátero') || qLower.includes('equilatero') || qLower.includes('geometria') || qLower.includes('área') || qLower.includes('area')) {
+      answer = `Um triângulo equilátero é uma figura geométrica plana que possui todos os três lados com medidas exatamente iguais. 
+      
+Como consequência direta dessa simetria, todos os seus três ângulos internos também são iguais e medem exatamente 60 graus. 
+
+Na música, pense no triângulo equilátero como um acorde maior perfeito: todos os intervalos de notas estão em perfeita consonância e equilíbrio. Qual fórmula de área ou perímetro de figuras planas você gostaria de revisar agora?`;
+    } else if (qLower.includes('seno') || qLower.includes('cosseno') || qLower.includes('tangente') || qLower.includes('trigonometria') || qLower.includes('ângulo') || qLower.includes('angulo')) {
+      answer = `A trigonometria estuda as relações entre os lados e os ângulos de um triângulo retângulo. 
+      
+O seno é a razão entre o cateto oposto e a hipotenusa; o cosseno é a razão entre o cateto adjacente e a hipotenusa; e a tangente é a divisão do cateto oposto pelo adjacente. 
+
+Pensando como músico: os valores trigonométricos oscilam perfeitamente entre 1 e -1, desenhando ondas senoidais puras que são a exata assinatura física de uma nota de saxofone pura no ar. Qual desses conceitos está te gerando dúvidas?`;
+    } else if (qLower.includes('equação') || qLower.includes('equacao') || qLower.includes('fração') || qLower.includes('fracao') || qLower.includes('álgebra') || qLower.includes('algebra')) {
+      answer = `A álgebra é a linguagem de encontrar números desconhecidos que chamamos de variáveis (como o clássico x). 
+      
+Trabalhar com equações é como afinar um saxofone: o que você faz de um lado para alterar o tom, deve fazer exatamente igual do outro lado para manter o equilíbrio e a afinação. Qual equação ou fração está travando sua resolução?`;
     } else if (qLower.includes('segunda lei') || qLower.includes('2ª lei') || qLower.includes('f = m') || qLower.includes('aceleração') || qLower.includes('aceleracao')) {
       answer = `A Segunda Lei de Newton, ou Princípio Fundamental da Dinâmica, estabelece que a força resultante aplicada a um corpo é igual ao produto de sua massa pela aceleração, expressa pela fórmula simples: Força é igual a massa multiplicada por aceleração.
 
