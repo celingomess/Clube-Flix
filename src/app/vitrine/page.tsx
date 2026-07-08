@@ -118,28 +118,47 @@ export default function VitrinePage() {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
           <div 
-            style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, fontFamily: 'var(--font-title)', cursor: 'pointer' }} 
+            style={{ display: 'flex', alignItems: 'center', gap: 16, cursor: 'pointer' }} 
             onClick={() => router.push('/vitrine')}
           >
+            {/* Logo do Professor */}
+            <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1, fontFamily: 'var(--font-title)' }}>
+              <span style={{ 
+                fontSize: '8px', 
+                fontWeight: 700, 
+                color: '#7a8b9e', 
+                letterSpacing: '2.5px', 
+                textTransform: 'uppercase',
+                marginBottom: '2px'
+              }}>
+                PROFESSOR
+              </span>
+              <span style={{ 
+                fontSize: '20px', 
+                fontWeight: 900, 
+                letterSpacing: '-0.5px',
+                display: 'flex',
+                alignItems: 'center'
+              }}>
+                <span style={{ color: '#ffffff' }}>CLAUDIO</span>
+                <span style={{ color: '#c9a84c', margin: '0 1px', fontWeight: 900, transform: 'translateY(1px)' }}>_</span>
+                <span style={{ color: '#c9a84c' }}>BRUM</span>
+              </span>
+            </div>
+
+            {/* Separador */}
+            <div style={{ height: '20px', width: '1px', background: 'rgba(255, 255, 255, 0.15)' }}></div>
+
+            {/* Nome da Plataforma */}
             <span style={{ 
-              fontSize: '8px', 
-              fontWeight: 700, 
-              color: '#7a8b9e', 
-              letterSpacing: '2.5px', 
-              textTransform: 'uppercase',
-              marginBottom: '3px'
-            }}>
-              PROFESSOR CLAUDIO BRUM
-            </span>
-            <span style={{ 
-              fontSize: '22px', 
-              fontWeight: 900, 
-              letterSpacing: '-0.5px',
+              fontSize: '20px', 
+              fontWeight: 800, 
+              fontFamily: 'var(--font-title)', 
+              letterSpacing: '-0.02em',
               display: 'flex',
               alignItems: 'center'
             }}>
               <span style={{ color: '#ffffff' }}>CLUBE</span>
-              <span style={{ color: '#c9a84c', margin: '0 1px', fontWeight: 900, transform: 'translateY(1px)' }}>_</span>
               <span style={{ color: '#c9a84c' }}>FLIX</span>
             </span>
           </div>
