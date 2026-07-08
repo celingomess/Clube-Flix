@@ -338,86 +338,36 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* Right Side - Interactive Mock Video Player Card */}
-              <div className="glass floating" style={{
-                position: 'relative',
-                borderRadius: '24px',
-                overflow: 'hidden',
-                border: '1px solid rgba(201, 168, 76, 0.2)',
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.7)',
-                aspectRatio: '16/9',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: '#070f24'
-              }}>
-                {/* Background Image of Player */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img 
-                  src="/claudio_brum.jpg" 
-                  alt="Claudio Brum Video Class" 
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    opacity: 0.45,
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    zIndex: 1
-                  }}
-                />
-                
-                {/* Watermark security overlay */}
+              {/* Right Side - Hero Photo Card with smooth float */}
+              <div className="floating" style={{ position: 'relative', width: '100%' }}>
+                {/* Glow behind the photo */}
                 <div style={{
-                  position: 'absolute',
-                  top: '10%',
-                  left: '10%',
-                  color: 'rgba(255, 255, 255, 0.15)',
-                  fontSize: '11px',
-                  fontWeight: 'bold',
-                  fontFamily: 'monospace',
-                  letterSpacing: '2px',
+                  position: 'absolute', top: -15, left: -15, right: -15, bottom: -15,
+                  background: 'var(--accent-gradient)', borderRadius: '32px', zIndex: 1, opacity: 0.15, filter: 'blur(20px)'
+                }}></div>
+                {/* Premium Glass Card */}
+                <div className="glass" style={{
+                  position: 'relative',
                   zIndex: 2,
-                  pointerEvents: 'none'
+                  borderRadius: '32px',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(201, 168, 76, 0.25)',
+                  boxShadow: '0 25px 50px rgba(0, 0, 0, 0.8)',
+                  padding: '16px'
                 }}>
-                  watermark: seu-email@exemplo.com.br
-                </div>
-
-                {/* Play Button */}
-                <div style={{
-                  width: '64px',
-                  height: '64px',
-                  borderRadius: '50%',
-                  background: 'var(--accent-gradient)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 3,
-                  boxShadow: 'var(--shadow-neon)',
-                  cursor: 'pointer',
-                  color: '#000',
-                  transition: 'transform 0.2s'
-                }} className="hover-scale">
-                  <Play size={24} fill="#000" />
-                </div>
-
-                {/* Control bar mock */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
-                  padding: '16px 20px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  zIndex: 3
-                }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ff3b30' }}></span>
-                  <span style={{ fontSize: '11px', fontWeight: 'bold' }}>AULA: Raciocínio Lógico e Padrões Matemáticos</span>
-                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', marginLeft: 'auto' }}>12:45 / 45:00</span>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src="/claudio_brum_hero.jpg" 
+                    alt="Professor Cláudio Brum - Estrategista de Exatas" 
+                    style={{
+                      width: '100%',
+                      borderRadius: '20px',
+                      display: 'block',
+                      objectFit: 'cover',
+                      aspectRatio: '1/1',
+                      boxShadow: 'inset 0 0 20px rgba(0,0,0,0.6)'
+                    }}
+                  />
                 </div>
               </div>
             </div>
