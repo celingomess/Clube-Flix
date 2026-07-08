@@ -238,210 +238,186 @@ export default function LandingPage() {
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-deep)' }}>
       
-      {/* Top Gold Promo Bar */}
-      <div style={{
-        background: 'var(--accent)',
-        color: '#000',
-        padding: '8px 16px',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        fontSize: '11px',
-        letterSpacing: '0.15em',
-        zIndex: 110,
-        boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)'
+      {/* Premium Glass Sticky Header */}
+      <header className="glass" style={{
+        position: 'sticky', top: 0, zIndex: 100,
+        padding: '16px 5%', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+        borderBottom: '1px solid rgba(201, 168, 76, 0.1)'
       }}>
-        TURMAS 2026 COM VAGAS LIMITADAS | ENCERRA EM: <span style={{ fontFamily: 'monospace', marginLeft: '6px' }}>04:59:00</span>
-      </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }} onClick={() => router.push('/')}>
+          <div style={{
+            background: 'var(--accent-gradient)', width: 36, height: 36, borderRadius: '50%',
+            display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', color: '#000'
+          }}>CF</div>
+          <span style={{ fontSize: 22, fontWeight: 800, fontFamily: 'var(--font-title)' }}>
+            CLUBE<span className="gradient-text">FLIX</span>
+          </span>
+        </div>
 
-      {/* Floating Navigation Header */}
-      <div style={{
-        position: 'sticky', top: 0, zIndex: 100, width: '100%', padding: '0 5%'
-      }}>
-        <header className="glass" style={{
-          margin: '20px auto 0 auto',
-          maxWidth: '1200px',
-          padding: '12px 28px',
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          borderRadius: '2rem',
-          border: '1px solid rgba(201, 168, 76, 0.1)',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)'
-        }}>
-          {/* Logo brand */}
-          <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 0.8, cursor: 'pointer' }} onClick={() => router.push('/')}>
-            <span style={{ fontSize: '9px', fontWeight: 'bold', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.4em', marginBottom: '2px', paddingLeft: '2px' }}>
-              Professor
-            </span>
-            <span style={{ fontSize: 22, fontWeight: 900, fontFamily: 'var(--font-title)', letterSpacing: '-0.02em', color: '#fff' }}>
-              CLAUDIO<span style={{ color: 'var(--accent)' }}>_BRUM</span>
-            </span>
-          </div>
+        {/* Original links */}
+        <nav className="hidden md:flex" style={{ display: 'flex', gap: 24, fontSize: '14px', fontWeight: 600 }}>
+          <span style={{ cursor: 'pointer' }} onClick={() => router.push('/vitrine')}>Showcase</span>
+          <span style={{ cursor: 'pointer' }} onClick={() => setShowQuiz(true)}>Diagnóstico</span>
+          <span style={{ cursor: 'pointer' }} onClick={() => router.push('/checkout')}>Planos</span>
+        </nav>
 
-          {/* Nav links */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-            <nav className="hidden lg:flex" style={{ display: 'flex', gap: 24, fontSize: '13px', fontWeight: 'bold', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-              <span className="cursor-pointer hover:text-primary" style={{ display: 'flex', alignItems: 'center', gap: '4px', cursor: 'pointer' }}>
-                Cursos <ChevronDown size={14} />
-              </span>
-              <span style={{ cursor: 'pointer' }}>Metodologia</span>
-              <span style={{ cursor: 'pointer' }}>Aprovados</span>
-              <span 
-                onClick={() => { setShowLoginModal(true); setLoginRole('student'); }}
-                style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'rgba(201, 168, 76, 0.85)', cursor: 'pointer', border: '1px solid rgba(201, 168, 76, 0.2)', padding: '6px 12px', borderRadius: '12px' }}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+          {currentUser ? (
+            <>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 14 }}>
+                <span className="glass" style={{ padding: '4px 8px', borderRadius: 4, textTransform: 'capitalize', fontSize: 11, background: 'rgba(255,255,255,0.05)' }}>
+                  {currentUser.role === 'teacher' ? 'Professor' : currentUser.role === 'parent' ? 'Responsável' : 'Estudante'}
+                </span>
+                <span style={{ fontWeight: 600 }}>{currentUser.name}</span>
+              </div>
+              <button 
+                onClick={() => {
+                  if (currentUser.role === 'teacher') router.push('/dashboard/teacher');
+                  else if (currentUser.role === 'parent') router.push('/dashboard/parent');
+                  else router.push('/vitrine');
+                }}
+                className="btn-secondary" 
+                style={{ padding: '8px 16px', fontSize: 13 }}
               >
-                Área do Aluno
-              </span>
-              <span onClick={() => setShowQuiz(true)} style={{ cursor: 'pointer', color: 'var(--accent)' }}>Diagnóstico</span>
-            </nav>
-
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              {currentUser ? (
-                <>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontSize: 13 }}>
-                    <span style={{ fontWeight: 600 }}>{currentUser.name}</span>
-                  </div>
-                  <button 
-                    onClick={() => {
-                      if (currentUser.role === 'teacher') router.push('/dashboard/teacher');
-                      else if (currentUser.role === 'parent') router.push('/dashboard/parent');
-                      else router.push('/vitrine');
-                    }}
-                    className="btn-primary" 
-                    style={{ padding: '8px 16px', fontSize: 11, borderRadius: '12px' }}
-                  >
-                    Entrar
-                  </button>
-                  <button onClick={handleLogout} style={{ background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
-                    <LogOut size={16} color="var(--text-muted)" />
-                  </button>
-                </>
-              ) : (
-                <button 
-                  onClick={() => router.push('/checkout')}
-                  className="btn-primary" 
-                  style={{
-                    padding: '10px 20px', 
-                    fontSize: '11px', 
-                    borderRadius: '12px',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em'
-                  }}
-                >
-                  Quero Minha Vaga
-                </button>
-              )}
-            </div>
-          </div>
-        </header>
-      </div>
+                Acessar Plataforma
+              </button>
+              <button onClick={handleLogout} style={{ background: 'transparent', cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
+                <LogOut size={18} color="var(--text-muted)" />
+              </button>
+            </>
+          ) : (
+            <>
+              <button 
+                onClick={() => { setShowLoginModal(true); setLoginRole('student'); }}
+                style={{ background: 'transparent', color: '#fff', fontWeight: 600, cursor: 'pointer' }}
+              >
+                Entrar
+              </button>
+              <button onClick={() => setShowQuiz(true)} className="btn-primary" style={{ padding: '10px 20px', fontSize: 14 }}>
+                Diagnóstico Grátis
+              </button>
+            </>
+          )}
+        </div>
+      </header>
 
       {/* Main Hero & Content */}
-      <main style={{ flex: 1, padding: '0 5% 60px 5%' }}>
+      <main style={{ flex: 1, padding: '40px 5%' }}>
         {!showQuiz ? (
           <>
-            {/* Hero Banner Section with integrated professor photo */}
+            {/* Two Column Hero Grid */}
             <div style={{
-              minHeight: '80vh',
-              borderRadius: '24px',
-              overflow: 'hidden',
-              margin: '30px auto 60px auto',
-              maxWidth: '1200px',
-              position: 'relative',
-              backgroundImage: `linear-gradient(to right, #040814 38%, rgba(4, 8, 20, 0.6) 68%, transparent 100%), url('/claudio_brum_banner.jpg')`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center right',
-              backgroundRepeat: 'no-repeat',
-              display: 'flex',
-              alignItems: 'center',
-              padding: '60px',
-              border: '1px solid var(--border-glass)',
-              boxShadow: '0 25px 60px rgba(0,0,0,0.8)'
+              display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: 40, alignItems: 'center',
+              margin: '40px auto 80px auto', maxWidth: '1200px'
             }}>
-              {/* Left Column Text */}
-              <div style={{ maxWidth: '650px', zIndex: 5 }}>
-                {/* Active Tag */}
-                <div style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '6px 16px',
-                  borderRadius: '30px',
-                  background: 'rgba(201, 168, 76, 0.08)',
-                  border: '1px solid rgba(201, 168, 76, 0.2)',
-                  color: '#fff',
-                  fontSize: '11px',
-                  fontWeight: 'bold',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  marginBottom: '28px'
+              <div>
+                <span style={{
+                  color: 'var(--accent)', fontWeight: 800, fontSize: 13, textTransform: 'uppercase',
+                  letterSpacing: 2, display: 'block', marginBottom: 12
                 }}>
-                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: 'var(--accent)', display: 'block' }} className="pulsing"></span>
-                  Turmas Abertas 2026 | Vagas Limitadas
-                </div>
-
-                <h1 style={{
-                  fontSize: '52px',
-                  lineHeight: '1.08',
-                  fontWeight: 900,
-                  marginBottom: '24px',
-                  fontFamily: 'var(--font-title)',
-                  textShadow: '0 2px 10px rgba(0,0,0,0.8)'
-                }}>
-                  A <span style={{ color: 'var(--accent)' }}>aprovação</span> que você sempre sonhou começa aqui.
+                  LMS EDTECH SAAS - STREAMING DE EXATAS
+                </span>
+                <h1 style={{ fontSize: 52, lineHeight: 1.1, marginBottom: 20, fontFamily: 'var(--font-title)' }}>
+                  Acelere sua aprovação em <span className="gradient-text">Física & Matemática</span>
                 </h1>
-                
-                <p style={{
-                  color: 'var(--text-secondary)',
-                  fontSize: '17px',
-                  lineHeight: '1.6',
-                  marginBottom: '32px',
-                  maxWidth: '520px'
-                }}>
-                  Concursos militares, escolas técnicas federais ou reforço escolar, o <strong style={{ color: '#fff' }}>Método Professor Claudio Brum</strong> já aprovou mais de 500 alunos e o próximo pode ser você (ou seu filho).
+                <p style={{ color: 'var(--text-secondary)', fontSize: 18, lineHeight: 1.6, marginBottom: 32 }}>
+                  Uma plataforma de streaming educacional assíncrona feita sob medida para vestibulandos, concurseiros e estudantes de exatas. Vídeos protegidos, anotações inteligentes e relatórios completos para seus pais.
                 </p>
 
-                {/* Pill categories */}
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '36px' }}>
-                  <div style={{
-                    display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px',
-                    borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(52, 211, 153, 0.2)',
-                    fontSize: '13px', fontWeight: 'bold', color: '#a7f3d0'
-                  }}>
-                    <Shield size={14} /> Concursos Militares
-                  </div>
-                  <div style={{
-                    display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px',
-                    borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(56, 189, 248, 0.2)',
-                    fontSize: '13px', fontWeight: 'bold', color: '#bae6fd'
-                  }}>
-                    <GraduationCap size={14} /> Escolas Técnicas e Federais
-                  </div>
-                  <div style={{
-                    display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 16px',
-                    borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(139, 92, 246, 0.2)',
-                    fontSize: '13px', fontWeight: 'bold', color: '#ddd6fe'
-                  }}>
-                    <BookOpen size={14} /> Acompanhamento Escolar
-                  </div>
-                </div>
-
-                {/* CTAs */}
-                <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
+                  <button onClick={() => setShowQuiz(true)} className="btn-primary" style={{ padding: '16px 36px', fontSize: 16 }}>
+                    Fazer Teste de Nivelamento <ArrowRight size={18} />
+                  </button>
                   <button 
                     onClick={() => router.push('/checkout')}
-                    className="btn-primary" 
-                    style={{ padding: '16px 36px', fontSize: '15px', color: '#000', fontWeight: '900' }}
-                  >
-                    Quero Garantir Minha Vaga
-                  </button>
-                  <button 
-                    onClick={() => setShowQuiz(true)}
                     className="btn-secondary" 
-                    style={{ padding: '16px 36px', fontSize: '15px', border: '1px solid rgba(255,255,255,0.1)' }}
+                    style={{ padding: '16px 36px', fontSize: 16 }}
                   >
-                    Conhecer os Cursos <ChevronDown size={16} />
+                    Assinar Agora
                   </button>
+                </div>
+              </div>
+
+              {/* Right Side - Interactive Mock Video Player Card */}
+              <div className="glass floating" style={{
+                position: 'relative',
+                borderRadius: '24px',
+                overflow: 'hidden',
+                border: '1px solid rgba(201, 168, 76, 0.2)',
+                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.7)',
+                aspectRatio: '16/9',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: '#070f24'
+              }}>
+                {/* Background Image of Player */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src="/claudio_brum.jpg" 
+                  alt="Claudio Brum Video Class" 
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    opacity: 0.45,
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    zIndex: 1
+                  }}
+                />
+                
+                {/* Watermark security overlay */}
+                <div style={{
+                  position: 'absolute',
+                  top: '10%',
+                  left: '10%',
+                  color: 'rgba(255, 255, 255, 0.15)',
+                  fontSize: '11px',
+                  fontWeight: 'bold',
+                  fontFamily: 'monospace',
+                  letterSpacing: '2px',
+                  zIndex: 2,
+                  pointerEvents: 'none'
+                }}>
+                  watermark: seu-email@exemplo.com.br
+                </div>
+
+                {/* Play Button */}
+                <div style={{
+                  width: '64px',
+                  height: '64px',
+                  borderRadius: '50%',
+                  background: 'var(--accent-gradient)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: 3,
+                  boxShadow: 'var(--shadow-neon)',
+                  cursor: 'pointer',
+                  color: '#000',
+                  transition: 'transform 0.2s'
+                }} className="hover-scale">
+                  <Play size={24} fill="#000" />
+                </div>
+
+                {/* Control bar mock */}
+                <div style={{
+                  position: 'absolute',
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
+                  padding: '16px 20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  zIndex: 3
+                }}>
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ff3b30' }}></span>
+                  <span style={{ fontSize: '11px', fontWeight: 'bold' }}>AULA: Raciocínio Lógico e Padrões Matemáticos</span>
+                  <span style={{ fontSize: '10px', color: 'var(--text-muted)', marginLeft: 'auto' }}>12:45 / 45:00</span>
                 </div>
               </div>
             </div>
