@@ -113,9 +113,12 @@ export default function TeacherDashboard() {
             <span style={{ fontSize: 10, color: 'var(--accent)' }}>Administrador SaaS</span>
           </div>
           <div style={{
-            background: 'var(--accent-gradient)', width: 36, height: 36, borderRadius: '50%',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold'
-          }}>CB</div>
+            width: 36, height: 36, borderRadius: '50%', overflow: 'hidden',
+            border: '2px solid var(--accent)', display: 'flex', alignItems: 'center', justifyContent: 'center'
+          }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/claudio_brum.jpg" alt="CB" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          </div>
         </div>
       </header>
 

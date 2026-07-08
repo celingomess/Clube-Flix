@@ -390,6 +390,65 @@ export default function LandingPage() {
                 </button>
               </div>
             </div>
+
+            {/* Professor Cláudio Brum Section */}
+            <div style={{
+              display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: 40, alignItems: 'center',
+              margin: '60px 0 20px 0', borderTop: '1px solid var(--border-glass)', paddingTop: 60
+            }}>
+              {/* Photo Card */}
+              <div style={{ position: 'relative' }}>
+                <div style={{
+                  position: 'absolute', top: -15, left: -15, right: 15, bottom: 15,
+                  background: 'var(--accent-gradient)', borderRadius: 20, zIndex: 1, opacity: 0.15, filter: 'blur(8px)'
+                }}></div>
+                <div className="glass" style={{
+                  position: 'relative', zIndex: 2, borderRadius: 20, overflow: 'hidden',
+                  border: '1px solid var(--border-glass)', padding: 12, display: 'flex', flexDirection: 'column'
+                }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img 
+                    src="/claudio_brum.jpg" 
+                    alt="Professor Cláudio Brum" 
+                    style={{ width: '100%', borderRadius: 12, display: 'block', objectFit: 'cover', aspectRatio: '1/1' }}
+                  />
+                  <div style={{ padding: '16px 8px 8px 8px', textAlign: 'center' }}>
+                    <strong style={{ fontSize: 18, display: 'block', marginBottom: 4 }}>Prof. Cláudio Brum</strong>
+                    <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>Fundador & Mentor do Clube Flix</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bio & Pedagogy */}
+              <div>
+                <span style={{
+                  color: 'var(--accent)', fontWeight: 800, fontSize: 12, textTransform: 'uppercase',
+                  letterSpacing: 2, display: 'block', marginBottom: 10
+                }}>
+                  SEU MENTOR NAS EXATAS
+                </span>
+                <h2 style={{ fontSize: 32, marginBottom: 16, fontFamily: 'var(--font-title)' }}>
+                  Aprenda com quem transforma teoria complexa em aprovação prática
+                </h2>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.6, marginBottom: 20 }}>
+                  Com mais de 15 anos de experiência lecionando física, cálculo e raciocínio lógico, o Professor Cláudio Brum projetou o Clube Flix para resolver as dificuldades reais dos estudantes de exatas.
+                </p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: 15, lineHeight: 1.6, marginBottom: 24 }}>
+                  Nossas aulas são desenhadas com metodologia visual e raciocínio conceitual passo a passo, eliminando a necessidade de memorização de fórmulas cegas e permitindo que você estude com 100% de autonomia e foco assíncrono.
+                </p>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+                  <div className="glass" style={{ padding: 16, borderRadius: 12 }}>
+                    <strong style={{ display: 'block', fontSize: 18, color: 'var(--accent)', marginBottom: 4 }}>+15 Anos</strong>
+                    <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>De docência e aprovações em vestibulares e concursos</span>
+                  </div>
+                  <div className="glass" style={{ padding: 16, borderRadius: 12 }}>
+                    <strong style={{ display: 'block', fontSize: 18, color: 'var(--accent)', marginBottom: 4 }}>Didática Prática</strong>
+                    <span style={{ fontSize: 12, color: 'var(--text-secondary)' }}>Foco em resolver problemas complexos com métodos visuais</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </>
         ) : (
           /* Quiz Component */
