@@ -238,11 +238,20 @@ export const SupabaseMock = {
     const userProgress: Progress[] = allProgress[cleanEmail] || [];
     
     const existingIdx = userProgress.findIndex((p) => p.videoId === videoId);
+    let shouldAddXp = false;
+    
     if (existingIdx > -1) {
+      const wasCompleted = userProgress[existingIdx].completed;
+      if (!wasCompleted && completed) {
+        shouldAddXp = true;
+      }
       userProgress[existingIdx].watchedSeconds = Math.max(userProgress[existingIdx].watchedSeconds, watchedSeconds);
       userProgress[existingIdx].completed = userProgress[existingIdx].completed || completed;
       userProgress[existingIdx].updatedAt = new Date().toISOString();
     } else {
+      if (completed) {
+        shouldAddXp = true;
+      }
       userProgress.push({
         videoId,
         courseId,
@@ -253,6 +262,10 @@ export const SupabaseMock = {
     }
     allProgress[cleanEmail] = userProgress;
     localStorage.setItem('clube_flix_progress', JSON.stringify(allProgress));
+
+    if (shouldAddXp) {
+      SupabaseMock.addXP(cleanEmail, 10);
+    }
   },
 
   // Notes
@@ -343,5 +356,41 @@ export const SupabaseMock = {
       totalDiagnosticLeads: leads.length,
       completionsRate: completionRate
     };
+  },
+
+  // XP & Gamification
+  getXP: (email: string): number => {
+    if (IS_SERVER) return 0;
+    const cleanEmail = email.toLowerCase().trim();
+    return parseInt(localStorage.getItem(`clube_flix_xp_${cleanEmail}`) || '0', 10);
+  },
+
+  getLevel: (email: string): number => {
+    if (IS_SERVER) return 1;
+    const cleanEmail = email.toLowerCase().trim();
+    return parseInt(localStorage.getItem(`clube_flix_level_${cleanEmail}`) || '1', 10);
+  },
+
+  addXP: (email: string, amount: number): { xp: number; level: number; leveledUp: boolean } => {
+    if (IS_SERVER) return { xp: 0, level: 1, leveledUp: false };
+    const cleanEmail = email.toLowerCase().trim();
+    const currentXp = SupabaseMock.getXP(cleanEmail);
+    const newXp = currentXp + amount;
+    localStorage.setItem(`clube_flix_xp_${cleanEmail}`, newXp.toString());
+    
+    // Level calculation
+    const currentLevel = SupabaseMock.getLevel(cleanEmail);
+    let newLevel = 1;
+    if (newXp >= 1000) newLevel = 5;
+    else if (newXp >= 600) newLevel = 4;
+    else if (newXp >= 300) newLevel = 3;
+    else if (newXp >= 100) newLevel = 2;
+    
+    const leveledUp = newLevel > currentLevel;
+    if (leveledUp) {
+      localStorage.setItem(`clube_flix_level_${cleanEmail}`, newLevel.toString());
+    }
+    
+    return { xp: newXp, level: newLevel, leveledUp };
   }
 };

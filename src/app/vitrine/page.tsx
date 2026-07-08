@@ -107,7 +107,21 @@ export default function VitrinePage() {
   // Progress stats overview
   const totalVideos = courses.flatMap(c => c.modules.flatMap(m => m.videos)).length;
   const completedVideos = progress.filter(p => p.completed).length;
-  const studentLevel = Math.max(1, Math.floor(completedVideos * 1.5) + 1);
+  const studentLevel = userEmail ? SupabaseMock.getLevel(userEmail) : 1;
+  const studentXp = userEmail ? SupabaseMock.getXP(userEmail) : 0;
+
+  const getXpProgressInfo = (xp: number, level: number) => {
+    if (level >= 5) return { percentage: 100, current: xp, next: 1000, label: 'Nível Máximo' };
+    let min = 0, max = 100;
+    if (level === 2) { min = 100; max = 300; }
+    else if (level === 3) { min = 300; max = 600; }
+    else if (level === 4) { min = 600; max = 1000; }
+    
+    const percentage = Math.min(100, Math.max(0, ((xp - min) / (max - min)) * 100));
+    return { percentage, current: xp, next: max, label: `${xp} / ${max} XP` };
+  };
+
+  const xpInfo = getXpProgressInfo(studentXp, studentLevel);
 
   return (
     <div style={{ minHeight: '100vh', background: 'var(--bg-deep)', display: 'flex', flexDirection: 'column' }}>
@@ -173,6 +187,7 @@ export default function VitrinePage() {
             <span style={{ color: '#fff', fontWeight: 600, cursor: 'pointer' }}>Vitrine</span>
             <span onClick={() => router.push('/')} style={{ color: 'var(--text-secondary)', cursor: 'pointer' }}>Início</span>
             <span onClick={() => router.push('/dashboard/parent')} style={{ color: 'var(--text-secondary)', cursor: 'pointer' }}>Relatório Pais</span>
+            <span onClick={() => router.push('/dashboard/school')} style={{ color: 'var(--text-secondary)', cursor: 'pointer' }}>Acesso Escolas</span>
           </nav>
         </div>
 
@@ -248,19 +263,25 @@ export default function VitrinePage() {
           </div>
 
           {/* Level card */}
-          <div style={{ borderLeft: '1px solid var(--border-glass)', paddingLeft: 24, display: 'flex', gap: 12, alignItems: 'center' }}>
+          <div style={{ borderLeft: '1px solid var(--border-glass)', paddingLeft: 24, display: 'flex', gap: 12, alignItems: 'center', flex: 1 }}>
             <div style={{
               background: 'var(--accent-gradient)', width: 48, height: 48, borderRadius: 12,
-              display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff'
+              display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', flexShrink: 0
             }}>
               <Award size={26} />
             </div>
-            <div>
-              <span style={{ fontSize: 12, color: 'var(--text-secondary)', display: 'block' }}>Nível de Estudos</span>
-              <strong style={{ fontSize: 16 }}>Nível {studentLevel}</strong>
-              <span style={{ display: 'block', fontSize: 10, color: 'var(--text-muted)' }}>
-                {completedVideos >= totalVideos ? 'Mestre de Exatas' : `${totalVideos - completedVideos} aulas para subir de nível`}
-              </span>
+            <div style={{ width: '100%' }}>
+              <span style={{ fontSize: 12, color: 'var(--text-secondary)', display: 'block', marginBottom: 2 }}>Progresso do Nível</span>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 }}>
+                <strong style={{ fontSize: 15, color: '#fff' }}>Nível {studentLevel === 5 ? '5 (Elite)' : studentLevel}</strong>
+                <span style={{ fontSize: 10, color: 'var(--accent)', fontWeight: 'bold' }}>{xpInfo.label}</span>
+              </div>
+              <div style={{ width: '100%', height: 6, background: 'rgba(255,255,255,0.08)', borderRadius: 3 }}>
+                <div style={{
+                  width: `${xpInfo.percentage}%`,
+                  height: '100%', background: 'var(--accent-gradient)', borderRadius: 3
+                }}></div>
+              </div>
             </div>
           </div>
         </section>

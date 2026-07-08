@@ -298,8 +298,9 @@ export default function LandingPage() {
 
         {/* Original links */}
         <nav className="hidden md:flex" style={{ display: 'flex', gap: 24, fontSize: '14px', fontWeight: 600 }}>
-          <span style={{ cursor: 'pointer' }} onClick={() => router.push('/vitrine')}>Showcase</span>
+          <span style={{ cursor: 'pointer' }} onClick={() => router.push('/vitrine')}>Vitrine</span>
           <span style={{ cursor: 'pointer' }} onClick={() => setShowQuiz(true)}>Diagnóstico</span>
+          <span style={{ cursor: 'pointer' }} onClick={() => router.push('/dashboard/school')}>Acesso Escolas</span>
           <span style={{ cursor: 'pointer' }} onClick={() => router.push('/checkout')}>Planos</span>
         </nav>
 
